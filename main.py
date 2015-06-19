@@ -16,7 +16,6 @@ socketio = SocketIO(app)
 thread = None
 
 
-
 def background_stuff():
     """ Let's do it a bit cleaner? """
     print 'In background_stuff'

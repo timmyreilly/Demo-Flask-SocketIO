@@ -22,15 +22,7 @@
             socket.on('message', function(msg){
                 $('#test').html('<p>' + msg.time + '</p>');             
             });
-            
-            
-            
-            // handlers for the different forms in the page
-            // these send data to the server in a variety of ways
-            $('form#disconnect').submit(function(event) {
-                socket.emit('disconnect request');
-                return false;
-            });
+          
         });
     </script>
 </head>
