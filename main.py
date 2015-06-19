@@ -6,10 +6,8 @@ monkey.patch_all()
 import time
 from threading import Thread
 from flask import Flask, render_template, session, request
-from flask.ext.socketio import SocketIO, emit, join_room, leave_room, \
-    close_room, disconnect
+from flask.ext.socketio import SocketIO, emit, join_room, disconnect
 
-from helperFunctions import *
 
 app = Flask(__name__)
 app.debug = True
@@ -32,7 +30,7 @@ def background_stuff():
 def index():
     global thread
     if thread is None:
-        thread = Thread(target=background_work)
+        thread = Thread(target=background_stuff)
         thread.start()
     return render_template('index.html')
 	
