@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Flask-SocketIO Test</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            namespace = '/test'; // change to an empty string to use the global namespace
+
+            // the socket.io documentation recommends sending an explicit package upon connection
+            // this is specially important when using the global namespace
+            var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+            socket.on('connect', function() {
+                socket.emit('my event', {data: 'I\'m connected!'});
+            });
+
+            
+            
+            socket.on('message', function(msg){
+                $('#test').html('<p>' + msg.time + '</p>');             
+            });
+            
+            
+            
+            // handlers for the different forms in the page
+            // these send data to the server in a variety of ways
+            $('form#disconnect').submit(function(event) {
+                socket.emit('disconnect request');
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    
+    <div>
+        <p id='test'> Hello </p>
+    </div>
+    
+    
+</body>
+<footer>
+    <div id="state"></div>
+    <!--<form id="disconnect" method="POST" action="#">
+        <input type="submit" value="Disconnect">
+    </form>-->
+</footer>
+</html>
