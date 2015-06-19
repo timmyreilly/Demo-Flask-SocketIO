@@ -3,7 +3,6 @@
 <head>
     <title>Flask-SocketIO Test</title>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function(){
@@ -13,13 +12,13 @@
             // this is specially important when using the global namespace
             var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
             
-            socket.on('connect', function() {
+            socket.on('connect', function(msg) {
                 socket.emit('my event', {data: 'I\'m connected!'});
             });
 
             
-            
             socket.on('message', function(msg){
+                console.log(msg.time)
                 $('#test').html('<p>' + msg.time + '</p>');             
             });
           
@@ -28,5 +27,7 @@
 </head>
 <body>
     <p id='test'> Hello </p>
+    
+    <p id='connected'>?</p>
 </body>
 </html>

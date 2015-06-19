@@ -18,7 +18,6 @@ thread = None
 
 def background_stuff():
     """ Let's do it a bit cleaner? """
-    print 'In background_stuff'
     while True:
         time.sleep(1)
         t = str(time.clock())
@@ -32,6 +31,19 @@ def index():
         thread = Thread(target=background_stuff)
         thread.start()
     return render_template('index.html')
+
+@socketio.on('my event', namespace='/test')
+def my_event(msg):
+    print msg['data']
+
+@socketio.on('connect', namespace='/test')
+def test_connect():
+    emit('my response', {'data': 'Connected', 'count': 0})
+
+
+@socketio.on('disconnect', namespace='/test')
+def test_disconnect():
+    print('Client disconnected')
 	
 	
 if __name__ == '__main__':
