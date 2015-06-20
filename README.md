@@ -2,7 +2,7 @@
 
 Took some time to explore the Flask-SocketIO from Miguel 
 
-Look for the blog post here: http://timmyreilly.com
+Look for the blog post here: <a href="http://timmyreilly.azurewebsites.net/flask-socketio-and-more/">TimmyReilly.com</a>
 
 <span style="color: black;">This week I've been making progress on the Huggable Cloud Pillow website.</span>
 
@@ -107,7 +107,7 @@ socektio.emit('tag', 'data', namespace)
 <span style="color: black;">Here's our route:
 </span>
 
-[sourcecode language="python"]
+<code>
 @app.route('/')
 def index():
     global thread
@@ -115,7 +115,7 @@ def index():
         thread = Thread(target=background_stuff)
         thread.start()
     return render_template('index.html')
-[/sourcecode]
+</code>
 
 <span style="color: black;">Pretty simple… Notice global thread and target=background_stuff
 </span>
