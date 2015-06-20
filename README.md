@@ -7,13 +7,14 @@ Look for the blog post here: <a href="http://timmyreilly.azurewebsites.net/flask
 In the process I've learned about some sweet stuff you can do with Javascript, Python, and Flask-SocketIO.
 
 
-<span style="color: black;">Flask is the tiny server that allows us to host websites using Python to deliver content to the client. While on the server side you can manage complicated back ends or other processes using Python in conjunction with Flask.</span>
+Flask is a <a href="http://flask.pocoo.org/">microframework<a>
 
 
 Free <a href="http://www.microsoftvirtualacademy.com/training-courses/introduction-to-creating-websites-using-python-and-flask">MVA</a> on Flask if you want to learn more!
 
 
 <strong>The five steps to this little demo project are as follows:</strong>
+
 1. Install Flask-SocketIO into our Virtual Environment
 
 2. Create our background thread
