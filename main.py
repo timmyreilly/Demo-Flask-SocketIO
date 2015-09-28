@@ -17,7 +17,7 @@ thread = None
 
 
 def background_stuff():
-    """ Let's do it a bit cleaner? """
+    """ Let's do it a bit cleaner """
     while True:
         time.sleep(1)
         t = str(time.clock())
